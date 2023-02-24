@@ -1,21 +1,24 @@
 ---
 import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
 const posts = await getCollection("blog");
 ---
 
-<ul>
-  {
-    posts.map((post) => {
-      return (
-        <article>
-          <h1 class="text-lg text-yellow-400">{post.data.title}</h1>
-          <small>{post.data.tags}</small>
-          <p>{post.data.description}</p>
-          <a class="text-blue-300 text-sm" href={`/blog/${post.slug}`}>
-            Read More
-          </a>
-        </article>
-      );
-    })
-  }
-</ul>
+<Layout title="Junseong Park">
+  <ul>
+    {
+      posts.map((post) => {
+        return (
+          <article>
+            <h1 class="text-lg text-yellow-400">{post.data.title}</h1>
+            <small>{post.data.tags}</small>
+            <p>{post.data.description}</p>
+            <a class="text-blue-300 text-sm" href={`/blog/${post.slug}`}>
+              Read More
+            </a>
+          </article>
+        );
+      })
+    }
+  </ul>
+</Layout>

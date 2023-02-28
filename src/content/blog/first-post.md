@@ -1,10 +1,13 @@
 ---
 title: My First Post
 description: First Test Post
-tags:
-  - JavaScript
-  - React
-  - TypeScript
+tag: JavaScript
+pubDate: 2023-02-28
 ---
 
-Hello World!!
+Hello World!!e
+
+```ts
+const a = "Hello";
+console.log(a);
+```

@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import "../style/global.css";
+
 const posts = await getCollection("blog");
 ---
 
@@ -11,7 +13,7 @@ const posts = await getCollection("blog");
         return (
           <article>
             <h1 class="text-lg text-yellow-400">{post.data.title}</h1>
-            <small>{post.data.tags}</small>
+            <small>{post.data.tag}</small>
             <p>{post.data.description}</p>
             <a class="text-blue-300 text-sm" href={`/blog/${post.slug}`}>
               Read More

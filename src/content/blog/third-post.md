@@ -1,8 +1,8 @@
 ---
 title: My Third Post
 description: Third Test Blog
-tags:
-  - Python
+tag: Go
+pubDate: 2023-02-28
 ---
 
 Hello World!!!!!!!!!!!!!!!!!!!!

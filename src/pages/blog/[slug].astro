@@ -26,8 +26,10 @@ const { Content } = await post.render();
 ---
 
 <Layout title={post.data.title}>
-  <header>
-    <h1>{post.data.title}</h1>
-  </header>
-  <Content />
+  <main class="mt-16">
+    <header>
+      <h1>{post.data.title}</h1>
+    </header>
+    <Content />
+  </main>
 </Layout>

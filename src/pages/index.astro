@@ -1,26 +1,22 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import "../style/global.css";
 
-const posts = await getCollection("blog");
+const name = "Junseong Park";
 ---
 
 <Layout title="Junseong Park">
-  <ul>
-    {
-      posts.map((post) => {
-        return (
-          <article>
-            <h1 class="text-lg text-yellow-400">{post.data.title}</h1>
-            <small>{post.data.tag}</small>
-            <p>{post.data.description}</p>
-            <a class="text-blue-300 text-sm" href={`/blog/${post.slug}`}>
-              Read More
-            </a>
-          </article>
-        );
-      })
-    }
-  </ul>
+  <div class="h-calc(100vh-124px) mt-16 flex justify-center items-center">
+    <div class="max-w-2xl px-4">
+      <h1 class="text-5xl font-bold text-gray-900">Hello, I am {name}</h1>
+      <p class="text-xl text-gray-700 mt-8">
+        I am interested in web development using
+      </p>
+      <ul class="text-lg text-gray-900 font-bold text-right">
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>React</li>
+      </ul>
+    </div>
+  </div>
 </Layout>

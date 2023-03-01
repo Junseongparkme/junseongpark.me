@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import "../../style/global.css";
+
+const posts = await getCollection("blog");
+
+posts.sort((a, b) => {
+  return Number(b.data.pubDate) - Number(a.data.pubDate);
+});
+---
+
+<Layout title="Junseong Park">
+  <main class="mt-16">
+    <ul class="grid grid-cols-2 gap-4">
+      {
+        posts.map((post) => {
+          return (
+            <li class="hover:translate-x-2 hover:-translate-y-2 hover:scale-105 transition-all duration-500">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:bg-yellow-100 transition-colors duration-500">
+                <a href={`/blog/${post.slug}`} class="block">
+                  <div class="">
+                    <h3 class="font-bold text-xl">{post.data.title}</h3>
+                    <p class="text-gray-700 text-base">
+                      {post.data.pubDate.toLocaleDateString()}
+                    </p>
+                    <span class="bg-gray-200 text-gray-700 text-sm rounded-full px-2 py-1 mt-2 inline-block">
+                      {post.data.tag}
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+</Layout>

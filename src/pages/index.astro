@@ -6,7 +6,7 @@ const name = "Junseong Park";
 ---
 
 <Layout title="Junseong Park">
-  <div class="h-calc(100vh-124px) mt-16 flex justify-center items-center">
+  <div class="h-[calc(100vh-124px)] mt-16 flex justify-center items-center">
     <div class="max-w-2xl px-4">
       <h1 class="text-5xl font-bold text-gray-900">Hello, I am {name}</h1>
       <p class="text-xl text-gray-700 mt-8">
@@ -20,3 +20,23 @@ const name = "Junseong Park";
     </div>
   </div>
 </Layout>
+
+<style>
+  html {
+    background: linear-gradient(to bottom right, #a8ff78, #78ffd6);
+    animation: gradient 8s ease infinite;
+    background-size: 400% 400%;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>

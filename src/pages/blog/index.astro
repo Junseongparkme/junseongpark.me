@@ -11,23 +11,24 @@ posts.sort((a, b) => {
 ---
 
 <Layout title="Junseong Park">
-  <main class="mt-16">
-    <ul class="grid grid-cols-2 gap-4">
+  <main class="h-[calc(100vh-124px)] mt-16">
+    <ul class="grid grid-cols-1 gap-4 mx-16 justify-center pt-6 md:grid-cols-2">
       {
         posts.map((post) => {
           return (
             <li class="hover:translate-x-2 hover:-translate-y-2 hover:scale-105 transition-all duration-500">
-              <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:bg-yellow-100 transition-colors duration-500">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:bg-yellow-100 transition-colors duration-500 py-6 px-6">
                 <a href={`/blog/${post.slug}`} class="block">
-                  <div class="">
-                    <h3 class="font-bold text-xl">{post.data.title}</h3>
-                    <p class="text-gray-700 text-base">
+                  <div class="flex flex-col">
+                    <h3 class="font-bold text-3xl pb-2">{post.data.title}</h3>
+                    <p class="pb-2">{post.data.description}</p>
+                    <p class="text-gray-700 text-xs">
                       {post.data.pubDate.toLocaleDateString()}
                     </p>
-                    <span class="bg-gray-200 text-gray-700 text-sm rounded-full px-2 py-1 mt-2 inline-block">
-                      {post.data.tag}
-                    </span>
                   </div>
+                  <span class="bg-gray-200 text-gray-700 text-sm rounded-full px-4 py-2 mt-2 inline-block">
+                    {post.data.tag}
+                  </span>
                 </a>
               </div>
             </li>
@@ -37,3 +38,23 @@ posts.sort((a, b) => {
     </ul>
   </main>
 </Layout>
+
+<style>
+  html {
+    background: linear-gradient(to bottom right, #6c63ff, #b84592);
+    animation: gradient 8s ease infinite;
+    background-size: 400% 400%;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
